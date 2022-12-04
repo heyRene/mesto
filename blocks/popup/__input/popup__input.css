@@ -1,0 +1,31 @@
+.popup__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 0 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 0 29px;
+  align-items: center;
+}
+::-webkit-input-placeholder {
+  color: rgba(196, 196, 196, 1);
+}
+::-moz-placeholder {
+  color: rgba(196, 196, 196, 1);
+}
+:-moz-placeholder {
+  color: rgba(196, 196, 196, 1);
+}
+:-ms-input-placeholder {
+  color: rgba(196, 196, 196, 1);
+}
+
+.popup__input:last-of-type {
+  margin: 0 0 47px;
+}
+@media screen and (max-width: 561px) {
+  .popup__input:last-of-type {
+    margin: 0 0 44px;
+  }
+}

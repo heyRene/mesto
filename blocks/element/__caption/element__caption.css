@@ -1,0 +1,7 @@
+.element__caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 79px;
+}

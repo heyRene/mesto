@@ -1,0 +1,5 @@
+.element__like_active {
+    background: url(../../../../images/like-button-active.svg) no-repeat center /
+      contain;
+      opacity: 1;
+  }

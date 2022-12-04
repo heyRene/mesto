@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Рената Гафиатуллина" />
+    <meta name="description" content="Mesto" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <div class="container">
+      <header class="header">
+        <img
+          class="logo"
+          src="./images/logo-white.svg"
+          alt="white logo mesto"
+        />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__content">
+            <img
+              class="profile__avatar"
+              src="./images/jacques-yve-cousteau.jpg"
+              alt="пожилой Жак-Ив Кусто крупным планом в красной шапке на фоне океана."
+            />
+            <div class="profile__info">
+              <div class="profile__text">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button
+                  class="profile__edit-button"
+                  type="button"
+                  aria-label="изменить"
+                ></button>
+              </div>
+              <p class="profile__caption">Исследователь океана.</p>
+            </div>
+          </div>
+          <button
+            class="profile__add-button"
+            type="button"
+            aria-label="добавить"
+          ></button>
+        </section>
+        <section class="elements"></section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">© 2020 Mesto Russia</p>
+      </footer>
+    </div>
+
+    <div class="popup popup_func_edit">
+      <div class="popup__container">
+        <form novalidate name="aboutForm" class="popup__form" method="post">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <fieldset class="popup__fieldset">
+            <input
+              type="text"
+              class="popup__input"
+              name="name"
+              id="name-input"
+              placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="popup__input-error" id="name-input-error"></span>
+            <input
+              type="text"
+              class="popup__input"
+              name="occupation"
+              id="occupation-input"
+              placeholder="О себе"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="popup__input-error" id="occupation-input-error"></span>
+          </fieldset>
+          <button class="popup__submit-button" type="submit" name="submitForm">
+            Сохранить
+          </button>
+        </form>
+        <button
+          class="popup__close-button"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+      </div>
+    </div>
+
+    <div class="popup popup_func_add">
+      <div class="popup__container">
+        <form
+          novalidate
+          name="addCardForm"
+          id="addCardForm"
+          class="popup__form"
+          method="post"
+        >
+          <h3 class="popup__title">Новое место</h3>
+          <fieldset class="popup__fieldset">
+            <input
+              type="text"
+              class="popup__input"
+              name="place"
+              id="place-input"
+              placeholder="Название"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span class="popup__input-error" id="place-input-error"></span>
+            <input
+              type="url"
+              class="popup__input"
+              name="link"
+              id="link-input"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <span class="popup__input-error" id="link-input-error"></span>
+          </fieldset>
+          <button
+            class="popup__submit-button popup__submit-button_func_add"
+            type="submit"
+            name="submitForm"
+          >
+            Сохранить
+          </button>
+        </form>
+        <button
+          class="popup__close-button popup__close-button_func_add"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+      </div>
+    </div>
+
+    <div class="popup popup_func_preview">
+      <figure class="popup__image-container">
+        <button
+          id="closeButtonPreview"
+          class="popup__close-button"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+        <img class="popup__image" src="#" alt="" />
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+    </div>
+
+    <!-- </template> -->
+    <template class="card-template">
+      <div class="element">
+        <img class="element__image" />
+        <div class="element__caption">
+          <h2 class="element__title"></h2>
+          <button
+            class="element__like"
+            type="button"
+            aria-label="нравится"
+          ></button>
+          <button
+            class="element__delete"
+            type="button"
+            aria-label="удалить"
+          ></button>
+        </div>
+      </div>
+    </template>
+
+    <script src="./script.js"></script>
+    <script src="./validate.js"></script>
+  </body>
+</html>
