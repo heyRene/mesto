@@ -1,4 +1,4 @@
-const popupEdit = document.querySelector(".popup");
+const popupEdit = document.querySelector(".popup_func_edit");
 const popupAdd = document.querySelector(".popup_func_add");
 const popupPreview = document.querySelector(".popup_func_preview");
 const imagePreview = popupPreview.querySelector(".popup__image");
@@ -69,12 +69,32 @@ function changeUserInfo(nameValue, occupationValue) {
   profileCaption.textContent = occupationValue;
 }
 
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const popupActive = document.querySelector(".popup_opened");
+    closePopup(popupActive);
+    console.log(popupActive);
+  }
+}
+
+function handleOverlay (evt) {
+  const popupActive = document.querySelector(".popup_opened");
+  if (evt.target === popupActive) {
+    const popupActive = document.querySelector(".popup_opened");
+    closePopup(popupActive);
+  }
+}
+
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", handleEscape);
+  document.removeEventListener("keydown", handleOverlay);
 }
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", handleEscape);
+  document.addEventListener("keydown", handleOverlay);
 }
 
 function createElement(nameValue, linkValue) {
@@ -89,12 +109,12 @@ function createElement(nameValue, linkValue) {
     evt.preventDefault();
     likeButton.classList.toggle("element__like_active");
   });
-  const image = cardElement.querySelector(".element__image");
+  // const image = cardElement.querySelector(".element__image");
   const caption = cardElement.querySelector(".element__title");
-  image.addEventListener("click", function () {
+  cardImage.addEventListener("click", function () {
     openPopup(popupPreview);
-    imagePreview.src = image.src;
-    imagePreview.alt = image.alt;
+    imagePreview.src = cardImage.src;
+    imagePreview.alt = cardImage.alt;
     captionPreview.textContent = caption.textContent;
   });
 
@@ -108,11 +128,9 @@ function createElement(nameValue, linkValue) {
 
 function addCard(card, end = true) {
   if (end) {
-    const cardElement = card;
-    cards.append(cardElement);
+    cards.append(card);
   } else {
-    const cardElement = card;
-    cards.prepend(cardElement);
+    cards.prepend(card);
   }
 }
 
@@ -122,15 +140,19 @@ profileForm.addEventListener("submit", function (evt) {
   closePopup(popupEdit);
 });
 
-buttonCloseAddCardForm.addEventListener("click", function () {
-  closePopup(popupAdd);
-});
-buttonCloseEditProfileForm.addEventListener("click", function () {
-  closePopup(popupEdit);
-});
-buttonClosePreview.addEventListener("click", function () {
-  closePopup(popupPreview);
-});
+const popups = document.querySelectorAll('.popup');
+
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+          console.log(popup);
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close-button')) {
+          closePopup(popup)
+        }
+      })
+    });
 
 buttonOpenAddCardForm.addEventListener("click", function (evt) {
   evt.preventDefault();
@@ -143,7 +165,6 @@ buttonOpenEditProfileForm.addEventListener("click", function (evt) {
   openPopup(popupEdit);
   nameInput.value = profileTitle.textContent;
   occupationInput.value = profileCaption.textContent;
-  // setSubmitButtonState(false);
 });
 
 addCardForm.addEventListener("submit", function (evt) {
@@ -161,21 +182,13 @@ initialCards.forEach(function (element) {
   addCard(card);
 });
 
-function keyHandler(e) {
-  if (e.key === "Escape") {
-    const popupActive = document.querySelector(".popup_opened");
-    closePopup(popupActive);
-    console.log(popupActive);
-  }
-}
-document.addEventListener("keydown", keyHandler);
+const enableValidation = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  fieldsetSelector: ".popup__fieldset",
+  submitButtonSelector: ".popup__submit-button",
+  inactiveButtonClass: "popup__submit-button_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__input-error_active"
+};
 
-document.addEventListener("click", (e) => {
-  if (
-    e.target === popupEdit ||
-    e.target === popupAdd ||
-    e.target === popupPreview
-  ) {
-    closePopup(e.target);
-  }
-});
