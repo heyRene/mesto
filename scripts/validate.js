@@ -1,4 +1,14 @@
-//Спасибо за советы, постаралась исправить. Надеюсь, все в порядке!)
+//Спасибо!
+const config = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  fieldsetSelector: ".popup__fieldset",
+  submitButtonSelector: ".popup__submit-button",
+  inactiveButtonClass: "popup__submit-button_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__input-error_active"
+};
+
 
 const showError = (formElement, inputElement, errorMessage, settings) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -70,4 +80,4 @@ const enableFormValidation = (settings) => {
     setEventListeners(formElement, settings);
   });
 };
-enableFormValidation(enableValidation);
+enableFormValidation(config);

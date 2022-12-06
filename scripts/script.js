@@ -77,24 +77,15 @@ function handleEscape(evt) {
   }
 }
 
-function handleOverlay (evt) {
-  const popupActive = document.querySelector(".popup_opened");
-  if (evt.target === popupActive) {
-    const popupActive = document.querySelector(".popup_opened");
-    closePopup(popupActive);
-  }
-}
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", handleEscape);
-  document.removeEventListener("keydown", handleOverlay);
 }
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", handleEscape);
-  document.addEventListener("keydown", handleOverlay);
 }
 
 function createElement(nameValue, linkValue) {
@@ -109,7 +100,6 @@ function createElement(nameValue, linkValue) {
     evt.preventDefault();
     likeButton.classList.toggle("element__like_active");
   });
-  // const image = cardElement.querySelector(".element__image");
   const caption = cardElement.querySelector(".element__title");
   cardImage.addEventListener("click", function () {
     openPopup(popupPreview);
@@ -182,13 +172,5 @@ initialCards.forEach(function (element) {
   addCard(card);
 });
 
-const enableValidation = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  fieldsetSelector: ".popup__fieldset",
-  submitButtonSelector: ".popup__submit-button",
-  inactiveButtonClass: "popup__submit-button_inactive",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__input-error_active"
-};
+
 
