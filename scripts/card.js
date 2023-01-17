@@ -6,8 +6,8 @@ export class Card {
     this._link = data.link;
     this._templateSelector = templateSelector;
   }
-  
-  /** inding element in HTML and getting template */
+
+  /** finding element in HTML and getting template */
   _getTemplate() {
     const cardElement = document
       .querySelector(this._templateSelector)
