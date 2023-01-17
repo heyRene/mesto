@@ -1,3 +1,5 @@
+// Спасибо!
+
 import { Card } from "./Card.js";
 import { initialCards } from "./constants.js";
 import { FormValidator, config } from "./FormValidator.js";
