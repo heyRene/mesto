@@ -35,7 +35,6 @@ export class FormValidator {
     this._buttonElement = this._formElement.querySelector(
       this._submitButtonSelector
     );
-    this._formList = Array.from(document.querySelectorAll(this._formSelector));
   }
 
   /** showing error */
@@ -103,11 +102,9 @@ export class FormValidator {
 
   /** enable validation */
   enableFormValidation() {
-    this._formList.forEach(() => {
-      this._formElement.addEventListener("submit", function (evt) {
-        evt.preventDefault();
-      });
-      this._setEventListeners();
+    this._formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
     });
+    this._setEventListeners();
   }
 }

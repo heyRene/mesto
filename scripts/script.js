@@ -1,4 +1,4 @@
-// Спасибо!
+// Еще раз спасибо! Хорошего дня)
 
 import { Card } from "./Card.js";
 import { initialCards } from "./constants.js";
@@ -69,7 +69,7 @@ function createCard(cardData) {
 }
 
 /** handle card form */
-function handleCardForm(evt) {
+function handleCardFormSubmit(evt) {
   const cardData = {
     name: cardTitleInput.value,
     link: cardLinkInput.value,
@@ -81,7 +81,7 @@ function handleCardForm(evt) {
 }
 
 /** handle profile form */
-function handleProfileForm(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   setUserInfo(nameInput.value, occupationInput.value);
   closePopup(popupEdit);
@@ -89,7 +89,6 @@ function handleProfileForm(evt) {
 
 /** open card form */
 function openProfileForm(evt) {
-  evt.preventDefault();
   openPopup(popupEdit);
   nameInput.value = profileTitle.textContent;
   occupationInput.value = profileCaption.textContent;
@@ -99,7 +98,7 @@ function openProfileForm(evt) {
 buttonOpenEditProfileForm.addEventListener("click", openProfileForm);
 
 /** changing user info submit form */
-profileForm.addEventListener("submit", handleProfileForm);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 /** close popup by clicking on overlay */
 popups.forEach((popup) => {
@@ -131,4 +130,4 @@ initialCards.forEach((cardData) => {
 });
 
 /** adding new card with submit form */
-cardForm.addEventListener("submit", handleCardForm);
+cardForm.addEventListener("submit", handleCardFormSubmit);
