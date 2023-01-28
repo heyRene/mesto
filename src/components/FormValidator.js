@@ -36,7 +36,6 @@ export class FormValidator {
       this._submitButtonSelector
     );
   }
-
   /** showing error */
   _showError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
@@ -46,7 +45,6 @@ export class FormValidator {
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._errorClass);
   }
-
   /** hiding error */
   _hideError(inputElement) {
     const errorElement = this._formElement.querySelector(
@@ -56,14 +54,12 @@ export class FormValidator {
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
   }
-
   /** checking if input is valid */
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
-
   /** showing/hiding error if input is valid/invalid */
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
@@ -72,7 +68,6 @@ export class FormValidator {
       this._hideError(inputElement);
     }
   }
-
   /** toggle button by checcking if input is valid */
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
@@ -83,7 +78,6 @@ export class FormValidator {
       this._buttonElement.disabled = false;
     }
   }
-
   /** setting event listeners */
   _setEventListeners() {
     this._toggleButtonState();
@@ -99,7 +93,6 @@ export class FormValidator {
       });
     });
   }
-
   /** enable validation */
   enableFormValidation() {
     this._formElement.addEventListener("submit", function (evt) {

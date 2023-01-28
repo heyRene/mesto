@@ -6,14 +6,13 @@
     <meta name="author" content="Рената Гафиатуллина" />
     <meta name="description" content="Mesto" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <div class="container">
       <header class="header">
         <img
           class="logo"
-          src="./images/logo-white.svg"
+          src="<%=require('./images/logo-white.svg')%>"
           alt="white logo mesto"
         />
       </header>
@@ -22,7 +21,7 @@
           <div class="profile__content">
             <img
               class="profile__avatar"
-              src="./images/jacques-yve-cousteau.jpg"
+              src="<%=require('./images/jacques-yve-cousteau.jpg')%>"
               alt="пожилой Жак-Ив Кусто крупным планом в красной шапке на фоне океана."
             />
             <div class="profile__info">
@@ -92,19 +91,13 @@
 
     <div class="popup popup_func_add">
       <div class="popup__container">
-        <form
-          novalidate
-          name="cardForm"
-          id="cardForm"
-          class="popup__form"
-          method="post"
-        >
+        <form novalidate name="cardForm" id="cardForm" class="popup__form">
           <h3 class="popup__title">Новое место</h3>
           <fieldset class="popup__fieldset">
             <input
               type="text"
               class="popup__input"
-              name="place"
+              name="name"
               id="place-input"
               placeholder="Название"
               minlength="2"
@@ -170,6 +163,5 @@
         </div>
       </div>
     </template>
-    <script type="module" src="./scripts/script.js"></script>
   </body>
 </html>

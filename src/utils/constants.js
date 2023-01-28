@@ -25,3 +25,27 @@ export const initialCards = [
     link: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },
 ];
+
+export const popupEdit = document.querySelector(".popup_func_edit");
+export const popupAdd = document.querySelector(".popup_func_add"); 
+export const popupWithImageSelector = document.querySelector('.popup_func_preview');
+export const popups = document.querySelectorAll(".popup");
+
+export const buttonOpenEditProfileForm = document.querySelector(
+  ".profile__edit-button"
+);
+export const buttonOpenAddCardForm = document.querySelector(
+  ".profile__add-button"
+);
+
+export const profileForm = document.forms.aboutForm;
+export const nameInput = profileForm.elements.name;
+export const occupationInput = profileForm.elements.occupation;
+export const profileTitle = document.querySelector(".profile__title");
+export const profileCaption = document.querySelector(".profile__caption");
+
+export const cardForm = document.forms.cardForm;
+export const cardTitleInput = cardForm.elements.place;
+export const cardLinkInput = cardForm.elements.link;
+
+export const cardsContainer = document.querySelector(".elements");

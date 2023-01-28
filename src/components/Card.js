@@ -1,12 +1,10 @@
-import { previewImage } from "./utils.js";
-
-export class Card {
-  constructor(data, templateSelector) {
+export default class Card {
+  constructor({ data, handleCardClick }, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._cardClick = handleCardClick;
   }
-
   /** finding element in HTML and getting template */
   _getTemplate() {
     const cardElement = document
@@ -16,31 +14,27 @@ export class Card {
 
     return cardElement;
   }
-
   /** generating card */
   generateCard() {
     this._element = this._getTemplate();
-    this._setEventListeners();
 
     const cardImage = this._element.querySelector(".element__image");
     cardImage.src = this._link;
     cardImage.alt = this._name;
     this._element.querySelector(".element__title").textContent = this._name;
+    this._setEventListeners();
 
     return this._element;
   }
-
   /** toggle like */
   _handleLikeClick() {
     this._likeButton.classList.toggle("element__like_active");
   }
-
   /** deleting card */
   _handleDeleteClick() {
     this._element.remove();
     this._element = null;
   }
-
   /** setting event listeners*/
   _setEventListeners() {
     this._likeButton = this._element.querySelector(".element__like");
@@ -54,8 +48,9 @@ export class Card {
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteClick();
     });
+
     this._cardImage.addEventListener("click", () => {
-      previewImage(this._link, this._name);
+      this._cardClick(this._link, this._name);
     });
   }
 }
