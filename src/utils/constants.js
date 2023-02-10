@@ -27,9 +27,13 @@ export const initialCards = [
 ];
 
 export const popupEdit = document.querySelector(".popup_func_edit");
-export const popupAdd = document.querySelector(".popup_func_add"); 
-export const popupWithImageSelector = document.querySelector('.popup_func_preview');
+export const popupAdd = document.querySelector(".popup_func_add");
+export const popupAvatar = document.querySelector(".popup_func_avatar");
+export const popupWithImageSelector = document.querySelector(
+  ".popup_func_preview"
+);
 export const popups = document.querySelectorAll(".popup");
+export const popupConfirm = document.querySelector(".popup_func_confirm");
 
 export const buttonOpenEditProfileForm = document.querySelector(
   ".profile__edit-button"
@@ -38,12 +42,17 @@ export const buttonOpenAddCardForm = document.querySelector(
   ".profile__add-button"
 );
 
+export const buttonChangeAvatar = document.querySelector(
+  ".profile__change-button"
+);
+export const profileAvatar = document.querySelector(".profile__avatar");
 export const profileForm = document.forms.aboutForm;
 export const nameInput = profileForm.elements.name;
 export const occupationInput = profileForm.elements.occupation;
 export const profileTitle = document.querySelector(".profile__title");
 export const profileCaption = document.querySelector(".profile__caption");
 
+export const changeAvatar = document.forms.changeAvatar;
 export const cardForm = document.forms.cardForm;
 export const cardTitleInput = cardForm.elements.place;
 export const cardLinkInput = cardForm.elements.link;

@@ -1,6 +1,5 @@
 export default class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this._renderedItems = items;
+  constructor({ renderer }, containerSelector) {
     this._renderer = renderer;
     this._container = containerSelector;
   }
@@ -14,10 +13,10 @@ export default class Section {
   clearItems() {
     this._container.innerHtml = "";
   }
-  renderItems() {
+  renderItems(items, id) {
     this.clearItems();
-    this._renderedItems.forEach((cardData) => {
-      this._renderer(cardData);
+    items.forEach((cardData) => {
+      this._renderer(cardData, id);
     });
   }
 }
